@@ -1,0 +1,16 @@
+<component name="ArtifactManager">
+  <artifact type="exploded-war" name="Spring_MVC_StaticPages:war exploded">
+    <output-path>$PROJECT_DIR$/target/Spring_MVC_StaticPages</output-path>
+    <root id="root">
+      <element id="directory" name="WEB-INF">
+        <element id="directory" name="classes">
+          <element id="module-output" name="Spring_MVC_StaticPages" />
+        </element>
+      </element>
+      <element id="directory" name="META-INF">
+        <element id="file-copy" path="$PROJECT_DIR$/target/Spring_MVC_StaticPages/META-INF/MANIFEST.MF" />
+      </element>
+      <element id="javaee-facet-resources" facet="Spring_MVC_StaticPages/web/Web" />
+    </root>
+  </artifact>
+</component>

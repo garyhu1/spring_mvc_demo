@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+       http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+    <bean id="out" class="com.garyhu.util.OuterHelper">
+        <constructor-arg>
+            <!--<bean class="com.garyhu.impl.JsonOutGenerator"/>-->
+            <!--也可以如下的方法注入-->
+            <ref bean="json"/>
+        </constructor-arg>
+    </bean>
+    <bean id="json" class="com.garyhu.impl.JsonOutGenerator"></bean>
+    <bean id="cvs" class="com.garyhu.impl.CvsOutGenerator"/>
+</beans>

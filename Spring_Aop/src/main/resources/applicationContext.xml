@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+       xmlns:aop="http://www.springframework.org/schema/aop"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+       http://www.springframework.org/schema/beans/spring-beans.xsd 
+       http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop.xsd">
+
+    <aop:config>
+        <aop:aspect id="log" ref="logging">
+            <aop:pointcut id="point" expression="execution(* com.garyhu.pojo.*.*(..))"/>
+            <aop:before method="beforeAdvice" pointcut-ref="point"/>
+            <aop:after method="afterAdvice" pointcut-ref="point"/>
+            <aop:after-returning method="afterReturningAdvice" pointcut-ref="point" returning="retVal"/>
+            <aop:after-throwing method="afterThrowingAdvice" pointcut-ref="point" throwing="e"/>
+            <aop:around method="aroundAdvice" pointcut-ref="point"/>
+        </aop:aspect>
+    </aop:config>
+    <bean id="student" class="com.garyhu.pojo.Student">
+        <property name="id" value="11012307"/>
+        <property name="name" value="Jimmy"/>
+        <property name="age" value="23"/>
+    </bean>
+    <bean id="logging" class="com.garyhu.log.Logging"/>
+</beans>

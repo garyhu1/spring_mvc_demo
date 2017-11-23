@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:util="http://www.springframework.org/schema/util"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+       http://www.springframework.org/schema/beans/spring-beans.xsd
+       http://www.springframework.org/schema/util http://www.springframework.org/schema/util/spring-util.xsd">
+    <bean id="category" class="com.garyhu.pojo.Category">
+        <property name="id" value="12"/>
+        <property name="name">
+            <value>手机</value>
+        </property>
+        <!--List-->
+        <property name="lists">
+            <list>
+                <value>4</value><!--集合的第一个元素设置为4-->
+                <ref bean="person"/>
+                <bean class="com.garyhu.pojo.Product">
+                    <property name="id" value="100"/>
+                    <property name="name" value="手机"/>
+                    <property name="price" value="1299"/>
+                </bean>
+            </list>
+        </property>
+        <!--针对list也可以采用下面方式ListFactoryBean-->
+        <property name="data">
+            <bean class="org.springframework.beans.factory.config.ListFactoryBean">
+                <property name="targetListClass">
+                    <value>java.util.ArrayList</value>
+                </property>
+                <property name="sourceList">
+                    <list>
+                        <value>one</value>
+                        <value>100</value>
+                        <value>第三</value>
+                    </list>
+                </property>
+            </bean>
+        </property>
+        <!--list的写法也可以是这样-->
+        <property name="objs">
+            <util:list list-class="java.util.ArrayList">
+                <value>one</value>
+                <value>100</value>
+                <value>第三</value>
+            </util:list>
+        </property>
+        <!--Map-->
+        <!--<property name="maps">
+            <map>
+                <entry key="key 1" value="1000"/>
+                <entry key="key 2" value-ref="person"/>
+                <entry key="key 3">
+                    <bean class="com.garyhu.pojo.Product">
+                        <property name="id" value="12"/>
+                        <property name="price" value="50"/>
+                        <property name="name" value="rice"/>
+                    </bean>
+                </entry>
+            </map>
+        </property>-->
+        <property name="maps">
+            <util:map map-class="java.util.HashMap">
+                <entry key="key1" value="100"/>
+                <entry key="key2" value="120"/>
+                <entry key="key3" value="dsa"/>
+            </util:map>
+        </property>
+    </bean>
+    <bean id="person" class="com.garyhu.pojo.Person"/>
+</beans>

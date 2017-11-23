@@ -1,0 +1,8 @@
+<component name="ArtifactManager">
+  <artifact type="war" name="Spring_MVC_StaticPages:war">
+    <output-path>$PROJECT_DIR$/target</output-path>
+    <root id="archive" name="Spring_MVC_StaticPages.war">
+      <element id="artifact" artifact-name="Spring_MVC_StaticPages:war exploded" />
+    </root>
+  </artifact>
+</component>

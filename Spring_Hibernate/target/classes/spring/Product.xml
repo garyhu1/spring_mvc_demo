@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+       http://www.springframework.org/schema/beans/spring-beans.xsd">
+    <bean id="productBo" class="com.garyhu.pojo.impl.ProductBoImpl">
+        <property name="productDao">
+            <ref bean="productDao"/>
+        </property>
+    </bean>
+
+    <bean id="productDao" class="com.garyhu.dao.impl.ProductDaoImpl">
+        <property name="sessionFactory">
+            <ref bean="sessionFactory"/>
+        </property>
+    </bean>
+</beans>

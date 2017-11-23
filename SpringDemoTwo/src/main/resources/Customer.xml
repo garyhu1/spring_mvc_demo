@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+       http://www.springframework.org/schema/beans/spring-beans.xsd
+       http://www.springframework.org/schema/context
+	   http://www.springframework.org/schema/context/spring-context-2.5.xsd">
+    <!--<context:annotation-config />-->
+    <bean id="BaseCustomer" class="com.garyhu.pojo.Customer">
+        <property name="name" value="Jimmy"/>
+    </bean>
+    <bean id="BaseAge" abstract="true">
+        <property name="age" value="29"/>
+    </bean>
+    <!--加上abstract后就不允许实例化了-->
+    <bean id="customer" parent="BaseCustomer" abstract="true">
+        <property name="id" value="12"/>
+        <property name="sex" value="male"/>
+        <property name="age" value="20"/>
+    </bean>
+
+    <bean id="cus" parent="customer">
+        <property name="name" value="Juddy"/>
+        <property name="sex" value="female"/>
+    </bean>
+
+    <!--添加依赖检查simple-->
+    <bean id="cut" parent="BaseAge" class="com.garyhu.pojo.Customer">
+        <property name="name" value="Willems"/>
+        <property name="sex" value="female"/>
+    </bean>
+</beans>

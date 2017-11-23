@@ -1,0 +1,16 @@
+<component name="ArtifactManager">
+  <artifact type="exploded-war" name="Spring_MVC_SimpleUrlHandlerMapping:war exploded">
+    <output-path>$PROJECT_DIR$/target/Spring_MVC_SimpleUrlHandlerMapping</output-path>
+    <root id="root">
+      <element id="directory" name="WEB-INF">
+        <element id="directory" name="classes">
+          <element id="module-output" name="Spring_MVC_SimpleUrlHandlerMapping" />
+        </element>
+      </element>
+      <element id="directory" name="META-INF">
+        <element id="file-copy" path="$PROJECT_DIR$/target/Spring_MVC_SimpleUrlHandlerMapping/META-INF/MANIFEST.MF" />
+      </element>
+      <element id="javaee-facet-resources" facet="Spring_MVC_SimpleUrlHandlerMapping/web/Web" />
+    </root>
+  </artifact>
+</component>
